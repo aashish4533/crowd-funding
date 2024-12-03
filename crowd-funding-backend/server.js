@@ -3,15 +3,13 @@ const bodyParser = require('body-parser');
 const pool = require('./db.js');  
 const path = require('path');
 const routes = require('./routes/index.js'); 
-const cors = require('cors');
+
 
 const app = express();
 const PORT = process.env.PORT || 5000;  
 
 // Middleware
 app.use(bodyParser.json());
-
-app.use(cors({ origin: 'http://localhost:3000' })); // Allow requests from React
 
 
 // Use the routes from routes/index.js

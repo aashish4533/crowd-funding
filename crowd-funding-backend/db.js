@@ -4,11 +4,10 @@ require('dotenv').config(); // Load environment variables from .env file
 
 // Create a connection pool
 const pool = new Pool({
-    user: process.env.DB_USER,          // e.g., 'postgres'
-    host: process.env.DB_HOST,          // e.g., 'localhost'
-    database: process.env.DB_NAME,      // e.g., 'mydatabase'
-    password: process.env.DB_PASSWORD,  // e.g., 'mypassword'
-    port: process.env.DB_PORT          // e.g., 5432
+    connectionString: process.env.DB_URL,     
+    ssl: {
+        rejectUnauthorized: false // Accept SSL certificates (if not self-signed)
+    }          // e.g., 5432
 });
 
 // Function to check the database connection
